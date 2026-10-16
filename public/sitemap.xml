@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://universetuition.in/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://universetuition.in/images/posters/maths-physics-chemistry.jpg</image:loc>
+      <image:title>Maths, Physics &amp; Chemistry Tuition - ICSE, IGCSE, CBSE</image:title>
+      <image:caption>Classes 10, 11, 12 coaching at Universe Tuition Centre Avaniyapuram Madurai</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://universetuition.in/images/posters/tailoring-aari-classes.jpg</image:loc>
+      <image:title>Complete Tailoring and Aari Embroidery Classes</image:title>
+      <image:caption>Hands-on tailoring training in Avaniyapuram Madurai</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://universetuition.in/images/posters/accountancy-classes.jpg</image:loc>
+      <image:title>Class 11 and 12 Accountancy Tuition</image:title>
+      <image:caption>Commerce coaching by Mrs. Uma Maheswari</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://universetuition.in/images/posters/hindi-courses-central-directorate.jpg</image:loc>
+      <image:title>Central Hindi Directorate Courses</image:title>
+      <image:caption>Certificate, Diploma and Advanced Diploma Hindi courses</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://universetuition.in/images/posters/bharatanatyam-dance-classes.jpg</image:loc>
+      <image:title>Bharatanatyam Dance Classes Madurai</image:title>
+      <image:caption>Classical dance academy in Avaniyapuram Madurai</image:caption>
+    </image:image>
+  </url>
+</urlset>
