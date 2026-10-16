@@ -3209,44 +3209,51 @@ h1, h2, h3, h4 {
 }
 
 /* Category Filter Tabs */
+.poster-tabs-container {
+  position: relative;
+  margin: 24px auto 36px auto;
+  max-width: 980px;
+}
+
 .poster-tabs-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
   align-items: center;
-  margin: 30px auto 40px auto;
-  max-width: 900px;
 }
 
 .poster-tab-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
+  gap: 7px;
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--muted);
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.22s ease;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
 }
 
 .poster-tab-btn:hover {
-  color: var(--ink);
-  border-color: var(--primary-border);
-  background: var(--primary-light);
+  color: #0f172a;
+  border-color: #cbd5e1;
+  background: #f8fafc;
   transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08);
 }
 
 .poster-tab-btn.is-active {
   color: #ffffff;
   background: var(--primary);
   border-color: var(--primary-dark);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.28);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
 }
 
 /* Posters Grid */
@@ -4106,15 +4113,47 @@ h1, h2, h3, h4 {
     font-size: 0.82rem;
   }
 
-  /* Posters Grid on mobile */
+  /* Posters Tabs on mobile - single clean horizontal scroll strip */
+  .poster-tabs-container {
+    margin: 16px 0 24px 0;
+    position: relative;
+  }
+
+  .poster-tabs-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -16px;
+    bottom: 8px;
+    width: 28px;
+    background: linear-gradient(90deg, transparent, rgba(241, 245, 249, 0.95));
+    pointer-events: none;
+    z-index: 2;
+  }
+
   .poster-tabs-wrap {
-    margin: 20px auto 28px auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 16px 12px 16px;
+    margin: 0 -16px;
     gap: 8px;
   }
 
+  .poster-tabs-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
   .poster-tab-btn {
-    padding: 7px 14px;
-    font-size: 0.8rem;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 7px 15px;
+    font-size: 0.81rem;
   }
 
   .posters-grid {

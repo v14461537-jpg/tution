@@ -88,23 +88,28 @@ export default function OfficialPosters({ language = 'en' }) {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="poster-tabs-wrap" role="tablist" aria-label="Course categories">
-          {posterCategories.map((cat) => {
-            const isActive = activeCategory === cat.id
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                className={`poster-tab-btn ${isActive ? 'is-active' : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                {getCategoryIcon(cat.id)}
-                <span>{cat[language]}</span>
-              </button>
-            )
-          })}
+        <div className="poster-tabs-container">
+          <div className="poster-tabs-wrap" role="tablist" aria-label="Course categories">
+            {posterCategories.map((cat) => {
+              const isActive = activeCategory === cat.id
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`poster-tab-btn ${isActive ? 'is-active' : ''}`}
+                  onClick={(e) => {
+                    setActiveCategory(cat.id)
+                    e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+                  }}
+                >
+                  {getCategoryIcon(cat.id)}
+                  <span>{cat[language]}</span>
+                </button>
+              )
+            })}
+          </div>
         </div>
 
         {/* Posters Grid */}

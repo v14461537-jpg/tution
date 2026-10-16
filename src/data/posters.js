@@ -12,7 +12,7 @@ export const postersData = [
     src: '/images/posters/maths-physics-chemistry.jpg',
     category: 'academics',
     en: {
-      badge: 'Classes 10, 11, 12',
+      badge: '',
       tag: 'Academic Coaching',
       title: 'Maths, Physics & Chemistry Coaching',
       subtitle: 'CBSE, IGCSE, ICSE, ISE & State Board · Since 2015',
@@ -22,7 +22,7 @@ export const postersData = [
       whatsapp: 'Hi Mrs. Umamaheswari, I would like to enquire about Maths, Physics & Chemistry tuition (Classes 10-12) at Universe Tuition Centre. Please share batch timings and fees.'
     },
     ta: {
-      badge: '10, 11, 12 ஆம் வகுப்புகள்',
+      badge: '',
       tag: 'கல்விப் பயிற்சி',
       title: 'கணிதம், இயற்பியல் & வேதியியல் பயிற்சி',
       subtitle: 'CBSE, IGCSE, ICSE, ISE & மாநிலப் பாடத்திட்டம் · 2015 முதல்',
@@ -37,7 +37,7 @@ export const postersData = [
     src: '/images/posters/accountancy-classes.jpg',
     category: 'academics',
     en: {
-      badge: 'Commerce & Accounts',
+      badge: '',
       tag: 'High School & Higher Sec',
       title: 'Accountancy Classes (11th, 12th & ISC)',
       subtitle: 'Individual Attention · Concept-Based Teaching · Board Exam Prep',
@@ -47,7 +47,7 @@ export const postersData = [
       whatsapp: 'Hi Mrs. Uma Maheswari, I would like to enquire about Class 11/12/ISC Accountancy coaching at Universe Tuition Centre. Please share batch details.'
     },
     ta: {
-      badge: 'வணிகவியல் & கணக்கியல்',
+      badge: '',
       tag: 'மேல்நிலைப் பள்ளி',
       title: 'கணக்கியல் வகுப்புகள் (11, 12 & ISC)',
       subtitle: 'தனிப்பட்ட கவனம் · கருத்து சார்ந்த கற்பித்தல் · மாதிரித் தேர்வுகள்',
@@ -62,7 +62,7 @@ export const postersData = [
     src: '/images/posters/hindi-courses-central-directorate.jpg',
     category: 'languages',
     en: {
-      badge: 'Govt. Recognized',
+      badge: '',
       tag: 'Central Hindi Directorate',
       title: 'Central Hindi Directorate (CHD) Courses',
       subtitle: 'Kendriya Hindi Nideshalaya · Certificate, Diploma & Advanced Diploma',
@@ -72,7 +72,7 @@ export const postersData = [
       whatsapp: 'Hi, I would like to enquire about Central Hindi Directorate (CHD) Hindi Certificate/Diploma courses at Universe Tuition Centre. Please share details.'
     },
     ta: {
-      badge: 'அரசு அங்கீகாரம் பெற்றது',
+      badge: '',
       tag: 'மத்திய இந்தி இயக்ககம்',
       title: 'மத்திய இந்தி இயக்கக சான்றிதழ் படிப்புகள்',
       subtitle: 'கேந்திரிய இந்தி நிதேஷாலயா · சான்றிதழ், பட்டயம் & உயர் பட்டயம்',
@@ -112,7 +112,7 @@ export const postersData = [
     src: '/images/posters/tailoring-aari-classes.jpg',
     category: 'arts',
     en: {
-      badge: '100% Practical & Placement Support',
+      badge: '',
       tag: 'Vocational Craft',
       title: 'Complete Tailoring & Aari Embroidery Classes',
       subtitle: 'Salwar Kameez, Designer Blouses, Aari & Zardosi Work',
@@ -122,7 +122,7 @@ export const postersData = [
       whatsapp: 'Hi Mrs. Umamaheswari, I would like to enquire about Tailoring & Aari Embroidery classes at Universe Tailoring Centre. Please share course duration and fees.'
     },
     ta: {
-      badge: '100% நேரடிப் பயிற்சி & வழிகாட்டல்',
+      badge: '',
       tag: 'தொழில்முறை தையல்',
       title: 'முழுமையான தையல் & ஆரி எம்பிராய்டரி வகுப்புகள்',
       subtitle: 'சுடிதார், டிசைனர் பிளவுஸ், ஆரி மற்றும் ஜர்தோசி வேலைப்பாடு',
@@ -137,7 +137,7 @@ export const postersData = [
     src: '/images/posters/bharatanatyam-dance-classes.jpg',
     category: 'arts',
     en: {
-      badge: 'Classical Arts Academy',
+      badge: '',
       tag: 'Heritage & Dance',
       title: 'Bharatanatyam Classical Dance Academy',
       subtitle: 'Adavus to Arangetram · Kids (Age 4+), Youth & Adults · Madurai',
@@ -147,7 +147,7 @@ export const postersData = [
       whatsapp: 'Hi Mrs. Umamaheswari, I would like to enquire about Bharatanatyam classical dance classes at Universe Centre, Madurai. Please share batch timings.'
     },
     ta: {
-      badge: 'பாரம்பரிய கலைக்கூடம்',
+      badge: '',
       tag: 'பரதநாட்டியம்',
       title: 'பரதநாட்டிய வகுப்புகள் (அனைத்து வயதினருக்கும்)',
       subtitle: 'அடவுகள் முதல் அரங்கேற்றம் வரை · 4 வயது முதல் · மதுரை',
@@ -162,7 +162,7 @@ export const postersData = [
     src: '/images/posters/senior-citizens-wellness.jpg',
     category: 'wellness',
     en: {
-      badge: 'Special 55+ Workshop',
+      badge: '',
       tag: 'Community & Joy',
       title: 'Senior Citizen (55+) Wellness & Joy Workshop',
       subtitle: 'சிரிக்கலாம் பறக்கலாம் · Laughter, Health & Bonding · CAS Nagar',
@@ -172,7 +172,7 @@ export const postersData = [
       whatsapp: 'Hi, I would like to know more about the 55+ Senior Citizen Wellness & Joy Workshop (சிரிக்கலாம் பறக்கலாம்) at CAS Nagar, Avaniyapuram.'
     },
     ta: {
-      badge: '55+ வயது சிறப்புப் பயிலரங்கம்',
+      badge: '',
       tag: 'மன அமைதி & மகிழ்ச்சி',
       title: '55+ வயதினருக்கான முழுமையான மகிழ்ச்சிக்கான பயிற்சி',
       subtitle: 'சிரிக்கலாம் பறக்கலாம்! இறக்கைகள் முளைக்குமே! · CAS நகர்',
