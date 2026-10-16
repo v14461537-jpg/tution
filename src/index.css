@@ -4054,7 +4054,9 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: auto;
+    touch-action: pan-x pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
   }
 
   .mobile-tab-image .poster-display-img {

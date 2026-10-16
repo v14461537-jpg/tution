@@ -126,10 +126,12 @@ export default function OfficialPosters({ language = 'en' }) {
                     className="poster-card-img"
                   />
 
-                  {/* Top Badge */}
-                  <div className="poster-card-badge">
-                    <span>{info.badge}</span>
-                  </div>
+                  {/* Top Badge (only if defined) */}
+                  {info.badge && (
+                    <div className="poster-card-badge">
+                      <span>{info.badge}</span>
+                    </div>
+                  )}
 
                   {/* Hover Overlay with Pop Action */}
                   <div className="poster-card-overlay">

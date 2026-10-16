@@ -87,22 +87,22 @@ export const postersData = [
     src: '/images/posters/language-centre-hindi-english.jpg',
     category: 'languages',
     en: {
-      badge: '8 Levels & Spoken Fluency',
+      badge: '',
       tag: 'Universe Language Centre',
-      title: 'Hindi Sabha Exams (8 Levels) & Spoken English',
+      title: 'Hindi Sabha Exams & Spoken English',
       subtitle: 'Dakshina Bharat Hindi Prachar Sabha + Fluent Spoken English / Hindi',
-      summary: 'All 8 DBHPS examination levels from Prathmic to Praveen Uttarardh. Plus conversational English and Hindi to build confidence and communication skills.',
-      features: ['Prathmic to Praveen (All 8 Levels)', 'Spoken English with Daily Practice', 'Spoken Hindi for Daily Life & Work', 'For School Children & Adults'],
+      summary: 'DBHPS examination coaching from Prathmic to Praveen Uttarardh. Plus conversational English and Hindi to build confidence and communication skills.',
+      features: ['Prathmic to Praveen (All Levels)', 'Spoken English with Daily Practice', 'Spoken Hindi for Daily Life & Work', 'For School Children & Adults'],
       faculty: 'Mrs. Umamaheswari (9843153372)',
-      whatsapp: 'Hi Mrs. Umamaheswari, I would like to enquire about Hindi Sabha Exams (Prathmic-Praveen) and Spoken English/Hindi classes. Please share details.'
+      whatsapp: 'Hi Mrs. Umamaheswari, I would like to enquire about Hindi Sabha Exams and Spoken English/Hindi classes. Please share details.'
     },
     ta: {
-      badge: '8 சபா தேர்வுகள் & பேச்சுப் பயிற்சி',
+      badge: '',
       tag: 'மொழிப் பயிற்சி மையம்',
-      title: 'இந்தி சபா தேர்வுகள் (8 நிலைகள்) & ஆங்கிலப் பேச்சுப் பயிற்சி',
+      title: 'இந்தி சபா தேர்வுகள் & ஆங்கிலப் பேச்சுப் பயிற்சி',
       subtitle: 'தக்ஷிண பாரத இந்தி பிரச்சார சபா + சரள ஸ்போக்கன் இங்கிலீஷ் / ஹிந்தி',
-      summary: 'பிராத்மிக் முதல் பிரவீண் உத்தரார்த் வரை அனைத்து 8 நிலைகளுக்கான தேர்வுகள். மேலும் தயக்கமின்றி சரளமாகப் பேச ஸ்போக்கன் இங்கிலீஷ் & ஹிந்தி வகுப்புகள்.',
-      features: ['பிராத்மிக் முதல் பிரவீண் வரை (8 தேர்வுகள்)', 'ஸ்போக்கன் இங்கிலீஷ் தினசரி உரையாடல்', 'ஸ்போக்கன் ஹிந்தி எளிய பேச்சுப் பயிற்சி', 'மாணவர்கள் மற்றும் பெரியவர்களுக்கு'],
+      summary: 'பிராத்மிக் முதல் பிரவீண் உத்தரார்த் வரை அனைத்து நிலைகளுக்கான தேர்வுகள். மேலும் தயக்கமின்றி சரளமாகப் பேச ஸ்போக்கன் இங்கிலீஷ் & ஹிந்தி வகுப்புகள்.',
+      features: ['பிராத்மிக் முதல் பிரவீண் வரை தேர்வுகள்', 'ஸ்போக்கன் இங்கிலீஷ் தினசரி உரையாடல்', 'ஸ்போக்கன் ஹிந்தி எளிய பேச்சுப் பயிற்சி', 'மாணவர்கள் மற்றும் பெரியவர்களுக்கு'],
       faculty: 'திருமதி உமாமகேஸ்வரி (9843153372)',
       whatsapp: 'வணக்கம், இந்தி சபா தேர்வுகள் மற்றும் ஸ்போக்கன் இங்கிலீஷ் வகுப்புகள் பற்றிய விவரங்களை அறிய விரும்புகிறேன்.'
     }

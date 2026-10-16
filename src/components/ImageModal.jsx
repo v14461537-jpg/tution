@@ -3,11 +3,9 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  ExternalLink,
   Sparkles,
   ZoomIn,
   ZoomOut,
-  Maximize2,
   FileText,
   Image as ImageIcon,
 } from 'lucide-react'
@@ -28,10 +26,14 @@ export default function ImageModal({
   const [imageLoaded, setImageLoaded] = useState(false)
   const [mobileTab, setMobileTab] = useState('image') // 'image' or 'details'
 
-  // Touch swipe handling for mobile
+  // Pinch-zoom detection & deliberate swipe navigation for mobile
   const touchStartX = useRef(null)
+  const touchStartY = useRef(null)
   const touchEndX = useRef(null)
-  const minSwipeDistance = 45
+  const touchEndY = useRef(null)
+  const isPinching = useRef(false)
+  const touchStartTime = useRef(0)
+  const minSwipeDistance = 70 // Intentional threshold to avoid accidental trigger
 
   // Reset states when poster changes
   useEffect(() => {
@@ -70,29 +72,92 @@ export default function ImageModal({
     }
   }, [isOpen, handleKeyDown])
 
-  // Touch swipe listeners for smooth mobile navigation
+  // Mobile touch handlers with strict pinch-to-zoom protection
   const handleTouchStart = (e) => {
+    // If more than 1 finger is down, user is pinch-zooming -> immediately suppress any swipe
+    if (e.touches && e.touches.length > 1) {
+      isPinching.current = true
+      touchStartX.current = null
+      touchStartY.current = null
+      return
+    }
+
+    isPinching.current = false
+    touchStartTime.current = Date.now()
     touchEndX.current = null
-    touchStartX.current = e.targetTouches[0].clientX
+    touchEndY.current = null
+
+    if (e.touches && e.touches[0]) {
+      touchStartX.current = e.touches[0].clientX
+      touchStartY.current = e.touches[0].clientY
+    }
   }
 
   const handleTouchMove = (e) => {
-    touchEndX.current = e.targetTouches[0].clientX
+    // If a second finger touches the screen at any point, user began pinch-zooming
+    if (e.touches && e.touches.length > 1) {
+      isPinching.current = true
+      touchStartX.current = null
+      touchStartY.current = null
+      return
+    }
+
+    if (isPinching.current || touchStartX.current === null) return
+
+    if (e.touches && e.touches[0]) {
+      touchEndX.current = e.touches[0].clientX
+      touchEndY.current = e.touches[0].clientY
+    }
   }
 
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return
-    const distance = touchStartX.current - touchEndX.current
-    const isLeftSwipe = distance > minSwipeDistance
-    const isRightSwipe = distance < -minSwipeDistance
-
-    if (isLeftSwipe && onNext) {
-      onNext()
-    } else if (isRightSwipe && onPrev) {
-      onPrev()
+  const handleTouchEnd = (e) => {
+    // If user was pinch-zooming or fingers remain on screen, discard gesture
+    if (isPinching.current || (e.touches && e.touches.length > 0)) {
+      if (!e.touches || e.touches.length === 0) {
+        isPinching.current = false
+      }
+      touchStartX.current = null
+      touchStartY.current = null
+      touchEndX.current = null
+      touchEndY.current = null
+      return
     }
+
+    if (touchStartX.current === null || touchEndX.current === null) return
+
+    const deltaX = touchStartX.current - touchEndX.current
+    const deltaY = (touchStartY.current ?? 0) - (touchEndY.current ?? 0)
+    const absDeltaX = Math.abs(deltaX)
+    const absDeltaY = Math.abs(deltaY)
+    const duration = Date.now() - touchStartTime.current
+
+    // Only swipe if:
+    // 1. Horizontal movement exceeds threshold (70px)
+    // 2. Movement is predominantly horizontal (not a vertical scroll or diagonal movement)
+    // 3. Gesture was a swift swipe, not a slow drag / panning movement (< 700ms)
+    const isIntentionalSwipe = absDeltaX > minSwipeDistance && absDeltaX > absDeltaY * 1.6 && duration < 700
+
+    if (isIntentionalSwipe) {
+      if (deltaX > 0 && onNext) {
+        onNext() // Swiped left -> Next poster
+      } else if (deltaX < 0 && onPrev) {
+        onPrev() // Swiped right -> Previous poster
+      }
+    }
+
     touchStartX.current = null
+    touchStartY.current = null
     touchEndX.current = null
+    touchEndY.current = null
+    isPinching.current = false
+  }
+
+  const handleTouchCancel = () => {
+    touchStartX.current = null
+    touchStartY.current = null
+    touchEndX.current = null
+    touchEndY.current = null
+    isPinching.current = false
   }
 
   if (!isOpen || !poster) return null
@@ -119,7 +184,7 @@ export default function ImageModal({
             <span className="poster-counter">
               {currentIndex + 1} / {totalCount}
             </span>
-            <span className="poster-badge">{info.badge}</span>
+            {info.badge && <span className="poster-badge">{info.badge}</span>}
             <span className="poster-tag-sub desktop-only">{info.tag}</span>
           </div>
 
@@ -159,17 +224,6 @@ export default function ImageModal({
               {isZoomed ? <ZoomOut size={18} /> : <ZoomIn size={18} />}
             </button>
 
-            <a
-              href={poster.src}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="modal-tool-btn"
-              title={enLabel ? 'Open original HD image' : 'அசல் படத்தைத் திற'}
-              aria-label="Open original image"
-            >
-              <ExternalLink size={18} />
-            </a>
-
             <button
               type="button"
               className="modal-close-btn"
@@ -189,6 +243,7 @@ export default function ImageModal({
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchCancel}
         >
           {/* Desktop Left Navigation Button */}
           {totalCount > 1 && onPrev && (
@@ -206,8 +261,7 @@ export default function ImageModal({
           {/* Poster Image Viewport */}
           <div
             className={`poster-image-viewport ${isZoomed ? 'is-zoomed' : ''} ${mobileTab === 'details' ? 'mobile-hidden' : ''}`}
-            onClick={(e) => {
-              // On desktop allow zoom click
+            onClick={() => {
               if (window.innerWidth >= 860) {
                 setIsZoomed((prev) => !prev)
               }
@@ -218,6 +272,7 @@ export default function ImageModal({
                 <div className="skeleton-pulse" />
               </div>
             )}
+
             <img
               src={poster.src}
               alt={info.title}
